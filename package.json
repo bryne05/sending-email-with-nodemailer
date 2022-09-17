@@ -1,6 +1,13 @@
 {
+  "name": "nodemailer-1",
+  "version": "1.0.1",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "type": "commonjs",
   "dependencies": {
     "bootstrap": "^5.2.1",
+    "express": "^4.18.1",
     "nodemailer": "^6.7.8"
   }
 }
