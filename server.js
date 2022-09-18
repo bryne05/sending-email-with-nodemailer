@@ -46,12 +46,13 @@ app.post('/send_mail', function(req,res){
   }
 
   if(attachPath != ''){
-    info.attachments.path = `${attachPath}`
+    info.attachments= {path:attachPath}
   }
 
   let gist = transporter.sendMail(info)
 
   res.send({message: "Message successfully sent to " + sendTo})
+  info = null;
 })
 
 const port = process.env.PORT || 3000;
