@@ -34,8 +34,8 @@ createApp({
         }
       }).then((res)=>{
         this.message = res.data.message
+        alert(this.message)
       });
-
     }
   }
 }).mount('#app')

@@ -24,7 +24,7 @@ app.post('/send_mail', function(req,res){
   let subject = req.body.subject;
   let from = req.body.from;
   let attachPath = req.body.attachPath;
- 
+
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: server, //smtp.gmail.com
@@ -43,14 +43,13 @@ app.post('/send_mail', function(req,res){
       to: sendTo, // list of receivers
       subject: subject, // Subject line
       attachments: [{
-        path: `${attachPath}`
+        path: attachPath ? `${attachPath}` : ''
         }
       ],
       txt:'',
       html: messageBody,
     });
-
-
+    console.log(attachPath);
   res.send({message: "Message successfully sent to " + sendTo})
 })
 
