@@ -37,19 +37,20 @@ app.post('/send_mail', function(req,res){
   });
 
   // send mail with defined transport object
-  
-  let info = transporter.sendMail({
-      from: `"${from}" <${senderEmail}>`, // sender address
-      to: sendTo, // list of receivers
-      subject: subject, // Subject line
-      attachments: [{
-        path: attachPath ? `${attachPath}` : ''
-        }
-      ],
-      txt:'',
-      html: messageBody,
-    });
-    console.log(attachPath);
+  let info = {
+    from: `"${from}" <${senderEmail}>`, // sender address
+    to: sendTo, // list of receivers
+    subject: subject, // Subject line
+    txt:'',
+    html: messageBody,
+  }
+
+  if(attachPath != ''){
+    info.attachments.path = `${attachPath}`
+  }
+
+  let gist = transporter.sendMail(info)
+
   res.send({message: "Message successfully sent to " + sendTo})
 })
 
