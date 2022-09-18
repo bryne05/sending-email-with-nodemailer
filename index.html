@@ -10,7 +10,133 @@
     </head>
     <body>
         <div id="app">
-            <h1>email</h1>
+            <div class="container m-3">
+                <div class="row ">
+                  <div class="col-4 container-fluid">
+                    <div class="form-floating mb-3 row">
+                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+                      <label htmlFor="floatingInput">Email address</label>
+                    </div>
+                    <div class="d-grid gap-2 row pt-2">
+                      <button class="btn btn-primary" type="button">Add Email Address</button>
+                    </div>
+                    <div class="row pt-2">
+                      <select class="form-select" multiple aria-label="multiple select example">
+                      <option >Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                      <option value="3">Three</option>
+                      <option value="3">Three</option>
+                      <option value="3">Three</option>
+                      <option value="3">Three</option>
+                      <option value="3">Three</option>
+        
+                      <option value="3">Three</option>
+                      </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 row pt-2">
+                      <button class="btn btn-danger" type="button">Delete All</button>
+                    </div>
+                  </div>
+                  <div class="col-8 ">
+                    <div class="row ">
+                      <div class="col-6">
+                        <div class="form-floating mb-3 mx-3">
+                          <input type="text" class="form-control" v-model="server" id="server" placeholder="name@example.com"/>
+                          <label for="server">Server</label>
+                          </div>
+                      </div>
+                      <div class="col-6 ">
+                        <div class="form-floating mb-3 mx-3">
+                      <input type="email" class="form-control" v-model="senderEmail" id="senderEmail" placeholder="name@example.com" />
+                      <label for="senderEmail">Email</label>
+                    </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2">
+                      <div class="col-6">
+                          <div class="form-floating mb-3 mx-3">
+                            <input type="number" class="form-control" v-model="port" id="port" placeholder="name@example.com"/>
+                            <label for="port">Port</label>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-floating mb-3 mx-3">
+                          <input type="password" class="form-control" v-model="senderPass" id="senderPass" placeholder="name@example.com" />
+                          <label for="senderPass">Password</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mx-3">
+                      <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" id="flexCheckDefault"/>
+                        <label class="form-check-label" htmlFor="flexCheckDefault">
+                          Require SSL
+                        </label>
+                      </div>
+                    </div>
+                    <div class="row ">
+                      <div class="col-6">
+                        <div class="form-floating mb-3 mx-3">
+                          <input type="text" class="form-control" v-model="from" id="from" placeholder="name@example.com" />
+                          <label for="from">From Name</label>
+                        </div>
+                      </div>
+                      <div class="col-6 ">
+                        <div class="form-floating mb-3 mx-3">
+                      <input type="email" class="form-control" placeholder="name@example.com"/>
+                      <label>From Email</label>
+                    </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2">
+                      <div class="col-6">
+                          <div class="form-floating mb-3 mx-3">
+                            <input type="email" class="form-control" v-model="sendTo" id="sendTo" placeholder="name@example.com" />
+                            <label for="sendTo">To</label>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-floating mb-3 mx-3">
+                          <input type="text" class="form-control" v-model="attachPath" id="attachPath" placeholder="https" />
+                          <label for="attachPath">Attachment</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2">
+                      <div class="col-12 w-100">
+                          <div class="form-floating mb-3 mx-3">
+                            <input type="text" class="form-control" v-model="subject" id="subject" placeholder="name@example.com" />
+                            <label for="subject">Subject</label>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2 ">
+                      <div class="col-12 w-100">
+                          <div class="mb-3 mx-3">
+                            <label for="messageBody" class="form-label">Message</label>
+                            <textarea class="form-control" v-model="messageBody" id="messageBody" rows="3"></textarea>
+                            <!-- {{messageBody}} -->
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2 ">
+                      <div class="col-8">
+                          <!-- {/*Status here*/} -->
+                      </div>
+                      <div class="col-4">
+                          <div class="d-grid gap-2 row pt-2 mx-3">
+                            <button class="btn btn-primary" @click="send">Submit</button>
+                          </div>
+                         
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- <h1>email</h1>
             <div class="mb-3">
                 <label for="senderEmail" class="form-label" >Email address</label>
                 <input type="email" class="form-control" v-model="senderEmail" placeholder="user@gmail.com">
@@ -19,9 +145,13 @@
                 <label for="senderEmail" class="form-label" >Email address</label>
                 <input class="form-control" type="password" v-model="senderPass" placeholder="password">
             </div>
-            <button type="button" @click="send" class="btn btn-lg btn-outline-primary"> Click</button>
+            <div class="mb-3">
+                <label for="sendTo" class="form-label" >Send to</label>
+                <input class="form-control" type="email" v-model="sendTo" placeholder="userto@gmail.com">
+            </div>
+            <button type="button" @click="send" class="btn btn-lg btn-outline-primary"> Click</button> -->
 
-            {{message}}
+            <!-- {{message}} -->
         </div>
         
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
