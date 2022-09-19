@@ -14,19 +14,22 @@
                 <div class="row ">
                   <div class="col-4 container-fluid">
                     <div class="form-floating mb-3 row">
-                      <input type="email" class="form-control" id="txtItem" placeholder="name@example.com" />
-                      <label htmlFor="floatingInput">Email address</label>
+                      <input type="email" class="form-control" placeholder="name@example.com" v-model="newEmail"/>
+                      <label for="floatingInput">Email address</label>
                     </div>
                     <div class="d-grid gap-2 row pt-2">
-                      <button class="btn btn-primary" type="button" onclick="insertItemIntoListBox();savedata();displayData()"> Add Email Address</button>
+                      <button class="btn btn-primary" type="button" @click="addToList()"> Add Email Address</button>
                     </div>
                     <div class="row pt-2">
-                      <select class="form-select" multiple aria-label="multiple select example" id="lstbox">
+                      <select class="form-select" v-model="selected" multiple>
+                        <option v-for="option in options" :value="option.value">
+                          {{ option.value }}
+                        </option>
                       </select>
                     </div>
                     
                     <div class="d-grid gap-2 row pt-2">
-                      <button class="btn btn-danger" type="button">Delete All</button>
+                      <button class="btn btn-danger" type="button" @click="deleteAll()">Delete All</button>
                     </div>
                   </div>
                   <div class="col-8 ">
@@ -83,7 +86,7 @@
                     <div class="row pt-2">
                       <div class="col-6">
                           <div class="form-floating mb-3 mx-3">
-                            <div class="form-control" v-model="sendTo" id="sendTo"></div> 
+                            <input class="form-control" v-model="sendTo" id="sendTo" :disabled="cantInsertSingle"></input> 
                             <label for="sendTo">To</label>
                           </div>
                       </div>
