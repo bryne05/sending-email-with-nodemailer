@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id="app">
-            <div class="container m-3">
+            <div class="container-fluid p-4">
                 <div class="row ">
                   <div class="col-4 container-fluid">
                     <div class="form-floating mb-3 row">
@@ -61,32 +61,18 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row mx-3">
-                      <div class="form-check ">
-                        <input class="form-check-input" type="checkbox" id="flexCheckDefault"/>
-                        <label class="form-check-label" htmlFor="flexCheckDefault">
-                          Require SSL
-                        </label>
-                      </div>
-                    </div>
                     <div class="row ">
-                      <div class="col-6">
+                      <div class="col-12">
                         <div class="form-floating mb-3 mx-3">
                           <input type="text" class="form-control" v-model="from" id="from" placeholder="name@example.com" />
                           <label for="from">From Name</label>
                         </div>
                       </div>
-                      <div class="col-6 ">
-                        <div class="form-floating mb-3 mx-3">
-                      <input type="email" class="form-control" placeholder="name@example.com"/>
-                      <label>From Email</label>
-                    </div>
-                      </div>
                     </div>
                     <div class="row pt-2">
                       <div class="col-6">
                           <div class="form-floating mb-3 mx-3">
-                            <input class="form-control" v-model="sendTo" id="sendTo" :disabled="cantInsertSingle"></input> 
+                            <input type="email" class="form-control" v-model="sendTo" id="sendTo" :disabled="cantInsertSingle" />
                             <label for="sendTo">To</label>
                           </div>
                       </div>
@@ -127,22 +113,6 @@
                   </div>
                 </div>
               </div>
-            <!-- <h1>email</h1>
-            <div class="mb-3">
-                <label for="senderEmail" class="form-label" >Email address</label>
-                <input type="email" class="form-control" v-model="senderEmail" placeholder="user@gmail.com">
-            </div>
-            <div class="mb-3">
-                <label for="senderEmail" class="form-label" >Email address</label>
-                <input class="form-control" type="password" v-model="senderPass" placeholder="password">
-            </div>
-            <div class="mb-3">
-                <label for="sendTo" class="form-label" >Send to</label>
-                <input class="form-control" type="email" v-model="sendTo" placeholder="userto@gmail.com">
-            </div>
-            <button type="button" @click="send" class="btn btn-lg btn-outline-primary"> Click</button> -->
-
-            <!-- {{message}} -->
         </div>
         
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
