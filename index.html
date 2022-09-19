@@ -149,33 +149,5 @@
         <script src="http://localhost:3000/app.js" type="module"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-        <script type="text/javascript">
-          var arrNames=new Array();
-          
-          function insertItemIntoListBox() {
-              var x = document.getElementById("lstbox");
-              var item = document.getElementById("txtItem").value;
-              var option = document.createElement("option");
-              option.text = item;
-              x.add(option);
-              alert(item + " has been added.");
-          }
-          
-          function savedata(){
-              var name = document.getElementById('txtItem').value;
-              arrNames[arrNames.length]=name;
-             
-            }
-             
-           
-          function displayData() 
-          {
-            var content="";
-            content+= [...arrNames]+"</br>";
-              document.getElementById('sendTo').innerHTML = content;
-            
-          }
-          
-          </script>
     </body>
 </html>
